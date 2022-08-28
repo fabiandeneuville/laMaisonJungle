@@ -21,6 +21,7 @@ function ShoppingList(){
                 {plantList.map((plant) => {
                     return (
                         <PlantItem
+                        key={plant.id}
                         id={plant.id}
                         name={plant.name}
                         cover={plant.cover}
