@@ -8,13 +8,13 @@ function ShoppingList({cart, updateCart}){
         return acc.includes(plant.category) ? acc : acc.concat(plant.category)
     }, [])
 
-    function addToCart(name, price){
-        const currentPlantAdded = cart.find((plant) => plant.name === name);
+    function addToCart(name, price, id){
+        const currentPlantAdded = cart.find((plant) => plant.id === id);
         if(currentPlantAdded){
-            const cartFilteredCurrentPlant = cart.filter((plant) => plant.name !== name);
-            updateCart([...cartFilteredCurrentPlant, {name, price, amount: currentPlantAdded.amount + 1}])
+            const cartFilteredCurrentPlant = cart.filter((plant) => plant.id !== id);
+            updateCart([...cartFilteredCurrentPlant, {name, price, id, amount: currentPlantAdded.amount + 1}])
         } else {
-            updateCart([...cart, {name, price, amount: 1}])
+            updateCart([...cart, {name, price, id, amount: 1}])
         }
     }
 
@@ -37,7 +37,7 @@ function ShoppingList({cart, updateCart}){
                             light={plant.light}
                             water={plant.water}
                             />
-                            <button onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
+                            <button onClick={() => addToCart(plant.name, plant.price, plant.id)}>Ajouter</button>
                         </div>
                     )
                 })}

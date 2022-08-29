@@ -9,6 +9,11 @@ function Cart({cart, updateCart}){
         return acc + plantType.amount * plantType.price
     }, 0)
 
+    function removePlantFromCart(id){
+        const filteredCart = cart.filter((plant) => plant.id !== id);
+        updateCart(filteredCart)
+    }
+
     return isOpen ? (
         <div className="lmj-cart">
             <button 
@@ -18,10 +23,11 @@ function Cart({cart, updateCart}){
                 Fermer
             </button>
             <h2>Panier</h2>
-            {cart.map(({name, price, amount}, index) => {
+            {cart.map(({name, price, amount, id}, index) => {
                 return (
                     <div key={`${name}-${index}`}>
                         {name} {price} € ({amount})
+                        <button onClick={() => removePlantFromCart(id)}>X</button>
                     </div>
                 )
             })}
