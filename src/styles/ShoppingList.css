@@ -1,8 +1,10 @@
 .lmj-plant-list {
 	list-style-type: none;
-	padding: 32px;
+	padding: 15px;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+	gap:25px;
 }
 
 .lmj-sales {
@@ -13,4 +15,16 @@
 	color: white;
 	padding: 5px 10px;
 	background-color: #31b572;
+}
+
+.lmj-plant-list-item {
+	position: relative;
+}
+
+.lmj-plant-list-item-button {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	border: none;
+	color: #31b572;
 }

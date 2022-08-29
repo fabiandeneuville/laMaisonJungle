@@ -4,9 +4,9 @@ import PlantItem from './PlantItem';
 
 function ShoppingList({cart, updateCart}){
 
-    const categories = plantList.reduce((acc, plant) => {
-        return acc.includes(plant.category) ? acc : acc.concat(plant.category)
-    }, [])
+    // const categories = plantList.reduce((acc, plant) => {
+    //     return acc.includes(plant.category) ? acc : acc.concat(plant.category)
+    // }, [])
 
     function addToCart(name, price, id){
         const currentPlantAdded = cart.find((plant) => plant.id === id);
@@ -21,15 +21,15 @@ function ShoppingList({cart, updateCart}){
     return (
 
         <div>
-            <ul>
+            {/* <ul>
                 {categories.map((category) => {
                     return <li key={category}>{category}</li>
                 })}
-            </ul>
+            </ul> */}
             <ul className='lmj-plant-list'>
                 {plantList.map((plant) => {
                     return (
-                        <div key={plant.id}>
+                        <div className='lmj-plant-list-item' key={plant.id}>
                             <PlantItem
                             id={plant.id}
                             name={plant.name}
@@ -37,7 +37,7 @@ function ShoppingList({cart, updateCart}){
                             light={plant.light}
                             water={plant.water}
                             />
-                            <button onClick={() => addToCart(plant.name, plant.price, plant.id)}>Ajouter</button>
+                            <button className='lmj-plant-list-item-button' onClick={() => addToCart(plant.name, plant.price, plant.id)}>Ajouter</button>
                         </div>
                     )
                 })}

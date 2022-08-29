@@ -27,12 +27,12 @@ function Cart({cart, updateCart}){
                 return (
                     <div key={`${name}-${index}`}>
                         {name} {price} € ({amount})
-                        <button onClick={() => removePlantFromCart(id)}>X</button>
+                        <button className='lmj-cart-remove-item-button' onClick={() => removePlantFromCart(id)}> Retirer </button>
                     </div>
                 )
             })}
             <h3>Total : {total} €</h3>
-            <button 
+            <button className='lmj-cart-clear-button'
                 onClick={() => updateCart([])}
             >
                 Vider le panier

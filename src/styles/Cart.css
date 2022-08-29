@@ -1,19 +1,15 @@
 .lmj-cart {
 	color: white;
 	background-color: #31b572;
-	padding: 32px;
+	padding: 15px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 400px;
+	width: 250px;
+    flex-shrink: 0;
 }
 
-.lmj-cart-add-button {
-	margin-left: 32px;
-	cursor: pointer;
-}
-
-.lmj-cart-toggle-button {
+.lmj-cart-toggle-button, .lmj-cart-clear-button, .lmj-cart-remove-item-button {
 	background: none;
 	outline: none;
 	border: none;
@@ -24,11 +20,22 @@
 	color: white;
 }
 
+.lmj-cart-remove-item-button {
+    margin-left: 5px;
+}
+
+
 .lmj-cart-closed {
 	padding: 32px;
-	width: 200px;
+	width: 250px;
 }
 
 .lmj-cart-closed > button {
 	color: black;
+}
+
+@media screen and (max-width:768px) {
+    .lmj-cart, .lmj-cart-closed {
+        width: 100%;
+    }
 }
