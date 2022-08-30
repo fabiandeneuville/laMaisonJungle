@@ -44,7 +44,9 @@ function Cart({cart, updateCart}){
                     onClick={() => setIsOpen(true)}
                     className='lmj-cart-toggle-button'
                 >
-                    Ouvrir le Panier
+                    Ouvrir le Panier (
+                        {cart.length === 1 ? `${cart.length} plante sélectionnée` : `${cart.length} plantes sélectionnées`}
+                    )
                 </button>
             </div>
         )
