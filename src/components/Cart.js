@@ -1,5 +1,5 @@
 import '../styles/Cart.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Cart({cart, updateCart}){
 
@@ -13,6 +13,10 @@ function Cart({cart, updateCart}){
         const filteredCart = cart.filter((plant) => plant.id !== id);
         updateCart(filteredCart)
     }
+
+    useEffect(() => {
+        document.title = `La Maison Jungle : ${total} € d'achat`
+    }, [total])
 
     return isOpen ? (
         <div className="lmj-cart">
