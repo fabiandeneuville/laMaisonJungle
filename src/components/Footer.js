@@ -28,6 +28,9 @@ function Footer(){
                 onBlur={handleBlur}
                 />
             </div>
+            <div className='lmj-footer-element'>
+                Site réalisé dans le cadre du cours <a href="https://openclassrooms.com/fr/courses/7008001-debutez-avec-react">Débutez avec React</a> dispensé par OpenClassroons.
+            </div>
         </footer>
     )
 }
