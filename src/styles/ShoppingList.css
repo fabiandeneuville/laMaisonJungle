@@ -1,3 +1,7 @@
+.lmj-shopping-list {
+	width: 100%;
+}
+
 .lmj-plant-list {
 	list-style-type: none;
 	padding: 15px;
@@ -27,4 +31,5 @@
 	right: 15px;
 	border: none;
 	color: #31b572;
+	cursor: pointer;
 }

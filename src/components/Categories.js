@@ -1,23 +1,22 @@
-import { plantList } from "../datas/plantList";
 import '../styles/Categories.css'
 
-function Categories(){
-
-    const categories = plantList.reduce((acc, plant) => {
-        return acc.includes(plant.category) ? acc : acc.concat(plant.category)
-    }, [])
+function Categories({categories, activeCategory, setActiveCategory}){
 
     return (
         <div className="lmj-categories">
             <label htmlFor="select">Choisissez une catégorie : </label>
-            <select name="select" id="select">
+            <select name="select" id="select"
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value)}
+            >
                 <option value="">---</option>
                 {categories.map((category, index) => {
                     return (
-                        <option key={`${category} - ${index}`} value="category">{category}</option>
+                        <option key={`${category} - ${index}`} value={category}>{category}</option>
                     )
                 })}
             </select>
+            <button className='lmj-categories-clear-button' onClick={() => setActiveCategory('')}>Réinitialiser</button>
         </div>
     )
 }

@@ -1,12 +1,18 @@
+import {useState} from 'react';
 import { plantList } from '../datas/plantList';
 import '../styles/ShoppingList.css';
 import PlantItem from './PlantItem';
+import Categories from './Categories';
 
 function ShoppingList({cart, updateCart}){
 
-    // const categories = plantList.reduce((acc, plant) => {
-    //     return acc.includes(plant.category) ? acc : acc.concat(plant.category)
-    // }, [])
+    const [activeCategory, setActiveCategory] = useState('');
+
+    const categories = plantList.reduce((acc, plant) => {
+        return (
+            acc.includes(plant.category) ? acc : acc.concat(plant.category)
+        )
+    }, [])
 
     function addToCart(name, price, id){
         const currentPlantAdded = cart.find((plant) => plant.id === id);
@@ -20,15 +26,17 @@ function ShoppingList({cart, updateCart}){
 
     return (
 
-        <div>
-            {/* <ul>
-                {categories.map((category) => {
-                    return <li key={category}>{category}</li>
-                })}
-            </ul> */}
+        <div className='lmj-shopping-list'>
+
+            <Categories
+            categories={categories}
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            />
+
             <ul className='lmj-plant-list'>
                 {plantList.map((plant) => {
-                    return (
+                    return !activeCategory || activeCategory === plant.category ?
                         <div className='lmj-plant-list-item' key={plant.id}>
                             <PlantItem
                             id={plant.id}
@@ -38,8 +46,7 @@ function ShoppingList({cart, updateCart}){
                             water={plant.water}
                             />
                             <button className='lmj-plant-list-item-button' onClick={() => addToCart(plant.name, plant.price, plant.id)}>Ajouter</button>
-                        </div>
-                    )
+                        </div> : null      
                 })}
             </ul>
         </div>
