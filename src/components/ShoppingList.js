@@ -44,6 +44,7 @@ function ShoppingList({cart, updateCart}){
                             cover={plant.cover}
                             light={plant.light}
                             water={plant.water}
+                            price={plant.price}
                             />
                             <button className='lmj-plant-list-item-button' onClick={() => addToCart(plant.name, plant.price, plant.id)}>Ajouter</button>
                         </div> : null      

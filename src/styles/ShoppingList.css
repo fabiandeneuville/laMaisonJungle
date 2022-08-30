@@ -32,4 +32,9 @@
 	border: none;
 	color: #31b572;
 	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lmj-plant-list-item-button:hover{
+	transform: scale(1.1);
 }
